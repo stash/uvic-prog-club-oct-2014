@@ -1,0 +1,96 @@
+/**
+ * Sky theme for reveal.js.
+ *
+ * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// fallback from proxima nova to Lato
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Proxima Nova', 'Lato', 'Open Sans', sans-serif;
+$mainColor: #333;
+$mainFontWeight: normal;
+
+$headingFont: 'Proxima Nova', 'Lato', 'Open Sans', sans-serif;
+$headingFontWeight: 700;
+$headingColor: #333;
+$headingLetterSpacing: -0.04em; //-0.08em;
+$headingTextShadow: none;
+$headingTextTransform: none;
+
+//$backgroundColor: #f7fbfc;
+$backgroundColor: #f7fcfc;
+$linkColor: #3b759e;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: #134674;
+
+// Fix links so they are not cut off
+.reveal a:not(.image) {
+	line-height: 1.3em;
+}
+
+// Background generator
+@mixin bodyBackground() {
+	// @include radial-gradient( #add9e4, #f7fbfc );
+	// @include radial-gradient( #ade8d9, $backgroundColor );
+	@include radial-gradient( #cff5ff, $backgroundColor );
+}
+
+.sfLogo {
+    height: 60px;
+    position: fixed;
+    bottom: 4px;
+    left: 4px;
+    opacity: 0.5;
+}
+
+.handWritey {
+  font-family: 'Comic Neue', 'Comic Sans' !important;
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+.reveal aside.controls div {
+  opacity: 0.025 !important;
+}
+.reveal aside.controls div.enabled {
+  opacity: 0.1 !important;
+}
+
+.reveal table {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-spacing: 0;
+  border-collapse: collapse;
+  padding: 0;
+}
+
+.reveal table td,
+.reveal table th {
+  border: 1px solid black;
+  margin: 0;
+  padding: 8px;
+  text-align: center;
+}
+
+.reveal code {
+  font-family: 'Inconsolata', 'Consolas', 'Courier New', 'Courier', monospace;
+  background: #ccc;
+  border-radius: 4px;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+}
+
+.reveal pre code {
+  background: #333;
+}
