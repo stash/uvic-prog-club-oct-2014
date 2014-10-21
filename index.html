@@ -51,7 +51,172 @@
         </section>
 
         <section>
-          <h2>ayup</h2>
+          <section data-transition="fade">
+            <h2>Web Security</h2>
+            <p>In this talk...</p>
+            <p class="fragment">What is "web security"</p>
+            <p class="fragment">Demonstration of ZAP &amp; XSS</p>
+            <p class="fragment">How to defend against XSS</p>
+            <p class="fragment">Future directions in security</p>
+            <aside class="notes">
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Security</h1>
+          </section>
+
+          <section>
+            <h2>What is Information Security?</h2>
+            <p class="fragment">like Physical Security, concerned with keeping things &amp; people safe</p>
+            <p class="fragment">but just concerned with digital information, computers, and networks</p>
+            <p class="fragment">Web security is one aspect of Information Security (InfoSec)</p>
+          </section>
+
+          <section>
+            <p>by analogy:</p>
+            <img src="drawer-closed.jpg" alt="[latched drawer with drawer above closed]">
+          </section>
+
+          <section>
+            <h2>Anti-Security</h2>
+            <p class="fragment">certain actors, often called "attackers", will try to break security</p>
+            <p class="fragment">attackers can be "White Hat" if considered ethical/legal</p>
+            <p class="fragment">attackers can be "Black Hat" if considered unethical/illegal</p>
+            <p class="fragment"><em>this is often highly subjective</em>; really just two sides of the same coin</p>
+          </section>
+
+          <section>
+            <h3>Locks don't care for your ethics</h3>
+            <img src="drawer-open.jpg" alt="[latched drawer with drawer above removed]">
+          </section>
+
+          <section>
+            <p>A mentor of mine once said:</p>
+            <blockquote class="fragment">"Locks only keep honest people out"</blockquote>
+            <p class="fragment">... which, by analogy, is like saying ...</p>
+            <blockquote class="fragment">"Why would the User would ever do that?!"</blockquote>
+          </section>
+
+          <section>
+            <h2>That doesn't mean you shouldn't learn to lock-pick</h2>
+            <img src="wikipedia-lock-picks.jpg" alt="[a small set of lock-picking tools from wikipedia]">
+            <p><em>metaphorically</em></p>
+          </section>
+
+          <section>
+            <h2>But why lockpick when you can use a screwdriver?!</h2>
+            <img src="defeated-lock.jpg" alt="[latch removed with screwdriver]">
+          </section>
+
+          <section>
+            <h2>It doesn't take specialized tools!</h2>
+            <p class="fragment">like the screwdriver, there are ubiquitous InfoSec tools</p>
+            <p class="fragment">lockpick sets are like automated InfoSec tools; just make it easier in some cases</p>
+            <p class="fragment">Tools aren't intrinsically "bad" or "evil"</p>
+          </section>
+
+          <section>
+            <h2>Knowing the tools means knowing how they work</h2>
+            <p class="fragment">knowing everyone's got a screwdriver...</p>
+            <p class="fragment">... maybe you put the screws on the secure side of the door</p>
+            <p class="fragment">... or, maybe weld the latch shut</p>
+          </section>
+
+
+          <section>
+            <h3>This isn't a talk on ethics, but ...</h3>
+            <p>Disclaimer: if you take something from this talk and do something irresponsible, I won't be held liable.</p>
+            <p class="fragment">You <b>should not</b> attack any applications other than your own, and only do that with permission from the appropriate authorities (e.g. your company, your school)</p>
+            <p class="fragment">So...</p>
+            <p class="fragment">Be awesome and responsible!</p>
+          </section>
+
+          <section>
+            <h3>Career Paths</h3>
+            <p>To generalize:</p>
+            <p class="fragment"><b>Attacker</b> - paid to break into things</p>
+            <p class="fragment"><b>Defender</b> - paid to make things less break-in-able</p>
+            <p class="fragment"><b>Builder</b> - paid to ship a product, apply defenses</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Let's Attack!</h1>
+            <p>App, Tool, and Objective</p>
+          </section>
+
+          <section>
+            <h3>The App</h3>
+            <p>Gruere Codelab</p>
+            <p><img src="gruyere-78.png" alt="gruyere logo"></p>
+            <a href="http://google-gruyere.appspot.com/">google-gruyere.appspot.com</a>
+          </section>
+
+          <section>
+            <h3>The Tool</h3>
+            <p>OWASP ZAP</p>
+            <p><img src="zap-128.png" alt="ZAP logo"></p>
+            <a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project">the Zed Attack Proxy</a>
+          </section>
+
+          <section>
+            <h3>The Objective</h3>
+            <p>Find a Cross-Site Scripting (XSS) vulnerability</p>
+            <p class="fragment">Roughly, XSS is when you can run JavaScript on someone else's page</p>
+          </section>
+
+          <section>
+            <h3>... demo ...</h3>
+            <p>(For those reading slides after the talk, be sure to set the Scope to <code>http://localhost:8008</code> and then enter Protected mode)</p>
+          </section>
+
+          <section>
+            <h3>Focus: XSS</h3>
+            <ol>
+              <li class="fragment">The page had a template slot for blahblah</li>
+              <li class="fragment">the user-controlled value was placed there verbatim</li>
+              <li class="fragment">we were able to "break out" of HTML context into JavaScript context</li>
+              <li class="fragment">we were then able to obtain their session cookie (authentication)</li>
+            </ol>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Defending against XSS</h1>
+          </section>
+
+          <section>
+            <h2>Fixing Gruyere</h2>
+          </section>
+
+          <section>
+            <h2>Gruyere has more to offer!</h2>
+            <p>For more challenges, see the Gruyere Codelab page!<p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Going Forward</h1>
+          </section>
+
+          <section>
+            <h2>OWASP Top 10</h2>
+          </section>
+
+          <section>
+            <h2>Mobile Security</h2>
+          </section>
+
+          <section>
+            <h2>Secure Development</h2>
+            <p>modelling and coding practices</p>
+          </section>
         </section>
 
       </div>
