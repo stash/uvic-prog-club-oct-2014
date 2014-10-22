@@ -54,12 +54,13 @@
           <section data-transition="fade">
             <h2>Web Security</h2>
             <p>In this talk...</p>
-            <p class="fragment">Overview of "Web Security"</p>
-            <p class="fragment">Tools used for testing Security</p>
-            <p class="fragment">How to defend against one type of attack (XSS)</p>
-            <p class="fragment">Future directions in security</p>
-            <aside class="notes">
-            </aside>
+
+            <ul>
+              <li class="fragment">Overview of "Web Security"</li>
+              <li class="fragment">Demo of finding a bug with ZAP</li>
+              <li class="fragment">How to fix that bug</li>
+              <li class="fragment">Future directions</li>
+            </ul>
           </section>
         </section>
 
@@ -69,53 +70,96 @@
           </section>
 
           <section>
-            <h2>What is Information Security?</h2>
-            <p class="fragment">like Physical Security, keeping things &amp; people safe</p>
+            <h2>Information Security</h2>
+            <p>("InfoSec")</p>
+            <p class="fragment">like Physical Security; keeping things &amp; people safe</p>
             <p class="fragment">... but just for digital information, computers, and networks</p>
-            <p class="fragment">Web security is one aspect of Information Security (InfoSec)</p>
           </section>
 
           <section>
-            <p>by analogy, keeping the "bad people" away from my stuff:</p>
+            <h2>Web Security</h2>
+            <p class="fragment">Web Security is just one aspect of Information Security</p>
+            <p class="fragment">It's about protecting a presence on the WWW</p>
+          </section>
+
+          <section>
+            <h2>By analogy...</h2>
+          </section>
+
+          <section>
+            <h3>A secure website in-progress:</h3>
             <img src="drawer-closed.jpg" alt="[latched drawer with drawer above closed]">
+            <aside class="notes">
+              The drawer is the website, the latch is security, the contents is valuable information.  Seems like a good design, right?
+            </aside>
           </section>
 
           <section>
-            <h2>Bad people?</h2>
-          </section>
-
-          <section>
-            <h3>Ethics?</h3>
-            <p class="fragment">Certain actors, often called "attackers", will try to break security</p>
-            <p class="fragment">"Why" they do this <em>is often highly subjective</em></p>
-          </section>
-
-          <section>
-            <h3>Locks don't care for your ethics</h3>
+            <h3>Improper security design</h3>
             <img src="drawer-open.jpg" alt="[latched drawer with drawer above removed]">
+            <aside class="notes">
+              Clearly this was a bad design.
+              Often we are so busy thinking about "how to keep the bad guy out" that we fail to design the system securely
+            </aside>
           </section>
 
           <section>
-            <p>A mentor of mine once said:</p>
-            <blockquote class="fragment">"Locks only keep honest people out"</blockquote>
-            <p class="fragment">... to which I say ...</p>
-            <blockquote class="fragment">"Some people are kept more honest than others"</blockquote>
-          </section>
-
-          <section>
-            <h2>Security is economics</h2>
+            <h2>Security as Economics</h2>
+            <img src="cost-benefit.png" alt="balance-scale with clock on left, stack of money on the right">
             <p class="fragment">Attacks will be proportional to value of goods</p>
             <p class="fragment">Defenses similarly need to improve in proportion</p>
+            <p class="fragment">Effective designs analyze cost-benefit trade-off</p>
+          </section>
+
+          <section>
+            <h2>Knowing how Web Security can be broken</h2>
+            <p>let's you assess that benefit</p>
+          </section>
+
+          <section>
+            <h2>Dangers:</h2>
           </section>
 
           <section>
             <h3>Danger: under-estimating value!</h3>
-            <p>Nobody would hack little-old me!</p>
+            <div style="display:table">
+              <div style="display:table-cell; vertical-align:middle">
+                <img src="big-eye-cat.jpg" alt="cat standing, begging, with big eyes">
+              </div>
+              <div style="display:table-cell; vertical-align:middle">
+                <p class="fragment">Nobody would hack little-old me!</p>
+                <p class="fragment">Avoid: neglecting to add security features</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Danger: <i>over</i>-estimating value!</h3>
+            <div style="display:table">
+              <div style="display:table-cell; vertical-align:middle">
+                <img src="fortress.jpg" alt="an unlikely fortress" style="height:50%">
+              </div>
+              <div style="display:table-cell; vertical-align:middle">
+                <p class="fragment">Nation-states and organized crime probably aren't going to hack your product right away</p>
+                <p class="fragment">Avoid: spending <b>all</b> your time building security features!</p>
+              </div>
+            </div>
           </section>
 
           <section>
             <h3>Danger: human mistakes!</h3>
             <p>Even with the best defenses, humans can mess it all up</p>
+            <img src="640px-Swiss_cheese_model_of_accident_causation.png" alt="Swiss cheese model of accident causation">
+            <p style="font-size: 50%"><em>"Swiss cheese model of accident causation" by Davidmack - Own work. CC-BY-SA 3.0 via <a href="https://commons.wikimedia.org/wiki/File:Swiss_cheese_model_of_accident_causation.png#mediaviewer/File:Swiss_cheese_model_of_accident_causation.png">Wikimedia Commons</a></em></p>
+          </section>
+
+          <section>
+            <h2>Web Security is important</h2>
+            <p>because it's...</p>
+            <p class="fragment">... relatively <b>inexpensive</b> to break</p>
+            <p class="fragment">... becoming <b>economical</b> to implement in stages</p>
+            <p class="fragment">... commonly the underpinning of Mobile security</p>
+            <p class="fragment">... an effective way to attract privacy-/security-minded customers</p>
           </section>
         </section>
 
