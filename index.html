@@ -190,7 +190,7 @@
 
           <section>
             <h3>How We'll Work:</h3>
-            <img src="zap-flow.png" alt="ZAP workflow" style="border:0">
+            <img src="zap-flow.png" alt="ZAP workflow" style="border:0; max-height: 66%">
           </section>
 
 
@@ -242,6 +242,29 @@
           </section>
 
           <section>
+            <h3>HTML Control Characters</h3>
+            <p class="fragment">Well known: <code>&quot;</code>, <code>&lt;</code>, <code>&gt;</code>, and <code>&amp;</code></p>
+            <p class="fragment">Often overlooked: <code>=</code>, <code>'</code> (apostrophe), <code>!</code>, <code>/</code>, and <code>`</code> (backtick)</p>
+          </section>
+
+          <section>
+            <h3>HTML Escaping</h3>
+            <table style="border: 1px solid black">
+              <thead>
+                <tr><th>Character</th><th>Encoding</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>&#34;</td><td><code>&amp;quot;</code></td></tr>
+                <tr><td>&lt;</td><td><code>&amp;lt;</code></td></tr>
+                <tr><td>&gt;</td><td><code>&amp;gt;</code></td></tr>
+                <tr><td>&#38;</td><td><code>&amp;amp;</code></td></tr>
+                <tr><td>&#39;</td><td><code>&amp;#39;</code></td></tr>
+                <tr><td>generally:</td><td><code>&#xHHHHHH;</code></td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section>
             <h2>Beyond the theory</h2>
             <p>Briefly stated: escape control characters</p>
             <p class="fragment">This is a "block-list" approach</p>
@@ -270,9 +293,9 @@
           </section>
 
           <section>
-            <h3>Applied to XSS</h3>
+            <h3>Allow-listing applied to XSS</h3>
             <p class="fragment">Alpha-numeric is usually safe</p>
-            <p class="fragment">Escape <b>everything else</b></p>
+            <p class="fragment">Escape <b>everything else</b> using <code>&#xHHHHHH;</code> syntax</p>
           </section>
 
           <section>
