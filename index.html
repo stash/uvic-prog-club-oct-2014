@@ -88,6 +88,10 @@
           </section>
 
           <section>
+            <h3>By analogy...</h3>
+          </section>
+
+          <section>
             <h3>Pretend this is a website</h3>
             <img src="drawer-closed.jpg" alt="[latched drawer with drawer above closed]">
             <p>Can you spot two things wrong?</p>
@@ -97,7 +101,7 @@
           </section>
 
           <section>
-            <h3>Improper design</h3>
+            <h3>Improper Security design</h3>
             <img src="drawer-open.jpg" alt="[latched drawer with drawer above removed]">
             <p>Leads to information disclosure, impersonation, financial loss &amp; more!</p>
             <aside class="notes">
@@ -201,9 +205,9 @@
 
           <section>
             <h3>X-what-now?</h3>
-            <p>Cross (english-idiom: X = cross)</p>
-            <p class="fragment">Site</p>
-            <p class="fragment">Scripting</p>
+            <p class="fragment">XSS = Cross-Site Scripting</p>
+            <p class="fragment">(english-idiom: X = cross)</p>
+            <p class="fragment">One of the easiest errors to make when building a web site</p>
             <p class="fragment">Roughly, XSS is when you can run JavaScript on someone else's page</p>
           </section>
 
@@ -230,7 +234,8 @@
 
           <section>
             <h2>Fixing Gruyere</h2>
-            <p>Live coding goes here... or explaining a pre-prepared patch</p>
+            <p>(Live coding goes here... or explaining a pre-prepared patch)</p>
+            <p>(Essentially: add apostrophe to filter in gtl.py, add :text in error.gtl)</p>
           </section>
 
           <section>
@@ -238,7 +243,7 @@
             <p class="fragment">XSS is caused by "breaking out" of one textual context into another</p>
             <p class="fragment">Parsers for a web page switch modes on certain control characters</p>
             <p class="fragment">Web languages provide syntax to "escape" those control characters</p>
-            <p class="fragment">So, let's escape control characters</p>
+            <p class="fragment">So, we escaped the problematic control characters!</p>
           </section>
 
           <section>
@@ -259,14 +264,17 @@
                 <tr><td>&gt;</td><td><code>&amp;gt;</code></td></tr>
                 <tr><td>&#38;</td><td><code>&amp;amp;</code></td></tr>
                 <tr><td>&#39;</td><td><code>&amp;#39;</code></td></tr>
-                <tr><td>generally:</td><td><code>&#xHHHHHH;</code></td></tr>
+                <tr><td>generally:</td><td><code>&#xHHHH;</code></td></tr>
               </tbody>
             </table>
+            <aside class="notes">
+              H is a hexadecimal digit, unicode goes from 1 to 0x1F0000
+            </aside>
           </section>
 
           <section>
-            <h2>Beyond the theory</h2>
-            <p>Briefly stated: escape control characters</p>
+            <h2>Expanding on Escaping: block-list vs. allow-list</h2>
+            <p class="fragment">Briefly stated, theory is: escape control characters</p>
             <p class="fragment">This is a "block-list" approach</p>
             <p class="fragment">An "allow-list" approach can be more comprehensive</p>
           </section>
@@ -275,14 +283,16 @@
             <h3>Block-lists</h3>
             <p class="fragment">Start with "everthing's fine"</p>
             <p class="fragment">incrementally subtract; "this is not OK"</p>
-            <p class="fragment">Problem: maintenance cost &amp; missing important items</p>
+            <p class="fragment"><b>Benefits:</b> easier to define</p>
+            <p class="fragment"><b>Problems:</b> maintenance cost &amp; missing important items</p>
           </section>
 
           <section>
             <h3>Allow-lists</h3>
             <p class="fragment">Start with "trust nothing"</p>
             <p class="fragment">incrementally add; "this is verified OK"</p>
-            <p class="fragment">Problem: sometimes over-matches &amp; breaks functionality</p>
+            <p class="fragment"><b>Benefits:</b> resilient to yet-unknown threats</p>
+            <p class="fragment"><b>Problems:</b> sometimes over-matches &amp; breaks functionality</p>
           </section>
 
           <section>
@@ -295,11 +305,11 @@
           <section>
             <h3>Allow-listing applied to XSS</h3>
             <p class="fragment">Alpha-numeric is usually safe</p>
-            <p class="fragment">Escape <b>everything else</b> using <code>&#xHHHHHH;</code> syntax</p>
+            <p class="fragment">Escape <b>everything else</b> using <code>&#xHHHH;</code> syntax</p>
           </section>
 
           <section>
-            <h2>Advanced Anti-XSS</h2>
+            <h2>Advanced Anti-XSS Techniques</h2>
             <p class="fragment">Use a template language with automatic escaping</p>
             <p class="fragment">Use a template language with <em>contextual</em> escaping</p>
             <p class="fragment">Use <a href="http://www.html5rocks.com/en/tutorials/security/content-security-policy/">Content-Security-Policy</a> (a topic worth another talk)</p>
