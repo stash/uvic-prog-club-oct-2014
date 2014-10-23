@@ -51,52 +51,55 @@
         </section>
 
         <section>
-          <section data-transition="fade">
-            <h2>Web Security</h2>
-            <p>In this talk...</p>
-
-            <ul>
-              <li class="fragment">Overview of "Web Security"</li>
-              <li class="fragment">Demo of finding a bug with ZAP</li>
-              <li class="fragment">How to fix that bug</li>
-              <li class="fragment">Future directions</li>
-            </ul>
-          </section>
+          <section>
+            <h1>Goals of this Talk</h1>
+              <p class="fragment">You know basically what I mean by "Web Security"</p>
+              <p class="fragment">You've seen how I use an open-source testing tool</p>
+              <p class="fragment">You get the gist of how to fix the bug we found</p>
+              <p class="fragment">I've given you some ideas on where to explore next</p>
+            </section>
         </section>
 
         <section>
           <section>
-            <h1>Security</h1>
-          </section>
-
-          <section>
-            <h2>Information Security</h2>
-            <p>("InfoSec")</p>
-            <p class="fragment">like Physical Security; keeping things &amp; people safe</p>
-            <p class="fragment">... but just for digital information, computers, and networks</p>
+            <h1>"Web Security"?</h1>
           </section>
 
           <section>
             <h2>Web Security</h2>
-            <p class="fragment">Web Security is just one aspect of Information Security</p>
-            <p class="fragment">It's about protecting a presence on the WWW</p>
+            <p>is about...</p>
+            <p class="fragment">Designing (Defenders)</p>
+            <p class="fragment">Implementing (Builders)</p>
+            <p class="fragment">and Testing (Attackers)</p>
+            <p class="fragment">for a better WWW</p>
+            <aside class="notes">
+              Fully-connected dependency graph
+            </aside>
           </section>
 
           <section>
-            <h2>By analogy...</h2>
+            <h1>Every website needs Security</h1>
+            <p>and I don't just mean HTTPS</p>
           </section>
 
           <section>
-            <h3>A secure website in-progress:</h3>
+            <h2>Security is a Quality</h2>
+            <p>I can't give you 100 securities ;)</p>
+          </section>
+
+          <section>
+            <h3>Pretend this is a website</h3>
             <img src="drawer-closed.jpg" alt="[latched drawer with drawer above closed]">
+            <p>Can you spot two things wrong?</p>
             <aside class="notes">
               The drawer is the website, the latch is security, the contents is valuable information.  Seems like a good design, right?
             </aside>
           </section>
 
           <section>
-            <h3>Improper security design</h3>
+            <h3>Improper design</h3>
             <img src="drawer-open.jpg" alt="[latched drawer with drawer above removed]">
+            <p>Leads to information disclosure, impersonation, financial loss &amp; more!</p>
             <aside class="notes">
               Clearly this was a bad design.
               Often we are so busy thinking about "how to keep the bad guy out" that we fail to design the system securely
@@ -104,46 +107,19 @@
           </section>
 
           <section>
-            <h2>Security as Economics</h2>
+            <h3>Security isn't easy</h3>
+            <img src="big-eye-cat.jpg" alt="cat standing, begging, with big eyes">
+            <p>"please don't hack me"</p>
+          </section>
+
+          <section>
+            <h3>Good Security takes LOTS of practice!</h3>
+            <img src="fortress.jpg" alt="an unlikely fortress">
+          </section>
+
+          <section>
+            <h3>Important to start learning early</h3>
             <img src="cost-benefit.png" alt="balance-scale with clock on left, stack of money on the right">
-            <p class="fragment">Attacks will be proportional to value of goods</p>
-            <p class="fragment">Defenses similarly need to improve in proportion</p>
-            <p class="fragment">Effective designs analyze cost-benefit trade-off</p>
-          </section>
-
-          <section>
-            <h2>Knowing how Web Security can be broken</h2>
-            <p>let's you assess that benefit</p>
-          </section>
-
-          <section>
-            <h2>Dangers:</h2>
-          </section>
-
-          <section>
-            <h3>Danger: under-estimating value!</h3>
-            <div style="display:table">
-              <div style="display:table-cell; vertical-align:middle">
-                <img src="big-eye-cat.jpg" alt="cat standing, begging, with big eyes">
-              </div>
-              <div style="display:table-cell; vertical-align:middle">
-                <p class="fragment">Nobody would hack little-old me!</p>
-                <p class="fragment">Avoid: neglecting to add security features</p>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <h3>Danger: <i>over</i>-estimating value!</h3>
-            <div style="display:table">
-              <div style="display:table-cell; vertical-align:middle">
-                <img src="fortress.jpg" alt="an unlikely fortress" style="height:50%">
-              </div>
-              <div style="display:table-cell; vertical-align:middle">
-                <p class="fragment">Nation-states and organized crime probably aren't going to hack your product right away</p>
-                <p class="fragment">Avoid: spending <b>all</b> your time building security features!</p>
-              </div>
-            </div>
           </section>
 
           <section>
@@ -151,57 +127,35 @@
             <p>Even with the best defenses, humans can mess it all up</p>
             <img src="640px-Swiss_cheese_model_of_accident_causation.png" alt="Swiss cheese model of accident causation">
             <p style="font-size: 50%"><em>"Swiss cheese model of accident causation" by Davidmack - Own work. CC-BY-SA 3.0 via <a href="https://commons.wikimedia.org/wiki/File:Swiss_cheese_model_of_accident_causation.png#mediaviewer/File:Swiss_cheese_model_of_accident_causation.png">Wikimedia Commons</a></em></p>
+            <aside class="notes">
+              The analogy here is that the cheese slices are multiple layers of security, but each layer has it's own "holes", so sometimes an attack can get through.
+            </aside>
           </section>
 
           <section>
-            <h2>Web Security is important</h2>
-            <p>because it's...</p>
-            <p class="fragment">... relatively <b>inexpensive</b> to break</p>
-            <p class="fragment">... becoming <b>economical</b> to implement in stages</p>
-            <p class="fragment">... commonly the underpinning of Mobile security</p>
-            <p class="fragment">... an effective way to attract privacy-/security-minded customers</p>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h1>Security Tools</h1>
-            <img src="wikipedia-lock-picks.jpg" alt="[a small set of lock-picking tools from wikipedia]">
-          </section>
-
-          <section>
-            <h2>It takes special tools to break a lock</h2>
-            <p>... right?</p>
-          </section>
-
-          <section>
-            <h3>Why pick a lock when you can use a screwdriver?!</h3>
+            <h2>Learn by doing</h2>
             <img src="defeated-lock.jpg" alt="[latch removed with screwdriver]">
+            <p>Security is hard, let's go hacking!</p>
           </section>
 
-          <section>
-            <h3>It doesn't take specialized tools!</h3>
-            <p class="fragment">like the screwdriver, there are ubiquitous InfoSec tools</p>
-            <p class="fragment">lockpick sets are like automated InfoSec tools; just make it easier in some cases</p>
+          <section data-transition="fade">
+            <h3>Practice without harm</h3>
+            <img src="wikipedia-lock-picks.jpg" alt="[a small set of lock-picking tools from wikipedia]">
+            <p>(<a href="https://en.wikipedia.org/wiki/Lock_picking#Canada">In Canada, it's legal to own lock-picks</a>, but illegal to possess "with the intention of committing a crime")</p>
           </section>
 
-          <section>
-            <h2>Tools aren't intrinsically "bad" or "evil"</h2>
+          <section data-transition="zoom">
+            <h1>Warning</h1>
+            <p>You <b>should not</b> attack any applications other than your own, and <b>only</b> do that with permission from the appropriate authorities (e.g. your company, your school)</p>
           </section>
 
-          <section>
-            <h3>Everyone needs to know how the tools work</h3>
-            <p class="fragment">Knowing everyone's got a screwdriver...</p>
-            <p class="fragment">... maybe you put the screws on the secure side of the door</p>
+          <section data-transition="zoom">
+            <h2>Disclaimer</h2>
+            <p>if you take something from this talk and do something irresponsible, I won't be held liable.</p>
           </section>
 
-          <section>
-            <h3>Once you know how they work</h3>
-            <p class="fragment">You're enabled to plan for the next level</p>
-            <p class="fragment">e.g., weld the latch onto the door</p>
-            <p class="fragment">e.g., make sure the door closes automatically</p>
-            <p class="fragment">e.g., if the door doesn't close, an alarm goes off</p>
-            <p class="fragment">e.g., make sure that the alarm isn't always going off and getting ignored</p>
+          <section data-transition="zoom">
+            <h2>Be awesome and responsible :)</h2>
           </section>
         </section>
 
@@ -209,16 +163,6 @@
           <section>
             <h1>Let's Attack!</h1>
             <p>App, Tool, and Objective</p>
-          </section>
-
-          <section>
-            <h2>Warning</h2>
-            <p>Disclaimer: if you take something from this talk and do something irresponsible, I won't be held liable.</p>
-            <p class="fragment">You <b>should not</b> attack any applications other than your own, and <b>only</b> do that with permission from the appropriate authorities (e.g. your company, your school)</p>
-          </section>
-
-          <section>
-            <h2>Be awesome and responsible</h2>
           </section>
 
           <section>
@@ -234,6 +178,21 @@
             <p><img src="zap-128.png" alt="ZAP logo"></p>
             <a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project">the Zed Attack Proxy</a>
           </section>
+
+          <section>
+            <h3>What does the Gruyere website do?</h3>
+            <ul>
+              <li class="fragment">users create profiles</li>
+              <li class="fragment">users share snippets</li>
+              <li class="fragment">administrators can manage users</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>How We'll Work:</h3>
+            <img src="zap-flow.png" alt="ZAP workflow" style="border:0">
+          </section>
+
 
           <section>
             <h3>The Objective</h3>
@@ -333,6 +292,12 @@
           <section>
             <h2>Gruyere has more to offer!</h2>
             <p>For more challenges, try the <a href="http://google-gruyere.appspot.com/">Gruyere Codelab</a> on your own!</p>
+          </section>
+
+          <section>
+            <h2>Web Security Dojo</h2>
+            <blockquote>A free open-source self-contained training environment for Web Application Security penetration testing. Tools + Targets = Dojo</blockquote>
+            <a href="https://www.mavensecurity.com/web_security_dojo/">https://www.mavensecurity.com/web_security_dojo/</a>
           </section>
 
           <section>
