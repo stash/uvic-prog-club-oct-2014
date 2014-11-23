@@ -181,6 +181,7 @@
             <p>OWASP ZAP</p>
             <p><img src="zap-128.png" alt="ZAP logo"></p>
             <a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project">the Zed Attack Proxy</a>
+            <p>(I've installed some <a href="https://code.google.com/p/zaproxy/wiki/HelpStartConceptsAddons">add-ons</a> to expand fuzz options)</p>
           </section>
 
           <section>
@@ -211,25 +212,82 @@
             <p class="fragment">Roughly, XSS is when you can run JavaScript on someone else's page</p>
           </section>
 
+        </section>
+
+        <section>
           <section>
-            <h3>... demo ...</h3>
+            <h1>Demo</h1>
             <p>(For those reading slides after the talk, be sure to set the Scope to <code>http://localhost:8008</code> and then enter Protected mode)</p>
           </section>
 
           <section>
-            <h3>Focus: XSS</h3>
-            <ol>
-              <li class="fragment">The page had a template slot</li>
-              <li class="fragment">the user-controlled value was placed there verbatim</li>
-              <li class="fragment">we were able to "break out" of HTML context into JavaScript context</li>
-              <li class="fragment">we were then able to obtain their session cookie (authentication)</li>
-            </ol>
+            <h3>... demo ...</h3>
+            <p>(see also: <code><a href="./gruyere-hints.md">gruyere-hints.md</a></code> in this directory)</p>
           </section>
+
+          <section>
+            <h3>Snippet Vulnerability</h3>
+            <p>"mouse-over" stored XSS</p>
+            <img src="./mouseover-snippet-xss.png" style="border:0; max-height: 50%" alt="MOUSE OVER THIS AREA">
+          </section>
+
+          <section>
+            <h3>Homepage combo Vulnerability</h3>
+            <p>Set homepage to "asdf"</p>
+            <img src="./error-page-reflect.png" style="border:0; max-height:33%" alt="reflecting thing not found">
+            <p>(reflecting the thing not found?)</p>
+          </section>
+
+          <section>
+            <h2>Effective Communication</h2>
+            <p>Builders necessarily economize; so much to do, so little time</p>
+            <p class="fragment">It's therefore <em>crucial</em> to make a compelling argument that something's worth fixing!</p>
+            <p class="fragment">"Demo the exploit" is a powerful conversation tool</p>
+          </section>
+
+          <section>
+            <h3>Showing the exploit</h3>
+            <p>Store payload into "homepage"...</p>
+            <p class="fragment">... trick user into clicking</p>
+          </section>
+
+          <section>
+            <h3>Dangerous Homepage</h3>
+            <p>Use the "Resend..." tool in ZAP to bypass form validation</p>
+            <p>Set this as the "homepage=" parameter</p>
+  <pre><code>
+  %253Cscript%253Eexfil%253Ddocument%252EcreateElement%2528%2522img
+  %2522%2529%253Bexfil%252Esrc%253D%2522newsnippet2%253Fsnippet%253D
+  %2522%252Bdocument%252Ecookie%253Bdocument%252Ebody%252EappendChild
+  %2528exfil%2529%253B%253C%252Fscript%253E
+  </code></pre>
+          </section>
+
+          <section>
+            <h3>Social Engineering 101</h3>
+            <p>Make a snippet: "Click my homepage to win <b>cashmoneydollars</b>"</p>
+          </section>
+
+          <section>
+            <h3>Result?</h3>
+            <p>User's cookie posted as a snippet!</p>
+          </section>
+
         </section>
 
         <section>
           <section>
             <h1>Defending against XSS</h1>
+          </section>
+
+          <section>
+            <h3>Focus: XSS</h3>
+            <ol>
+              <li class="fragment">The error page had a template slot</li>
+              <li class="fragment">the user-controlled value was placed there verbatim</li>
+              <li class="fragment">we were able to "break out" of HTML context into JavaScript context</li>
+              <li class="fragment">we were then able to obtain their session cookie (authentication)</li>
+            </ol>
           </section>
 
           <section>
